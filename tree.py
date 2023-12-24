@@ -40,9 +40,11 @@ def print_tree(rows, leaf_char='^', trunk_char='| |', light_char='@'):
 
 def main():
     
-    rows = 16  # Adjust the number of rows to make the tree bigger
+    rows = 30  # Adjust the number of rows to make the tree bigger
+    terminal_size = shutil.get_terminal_size()
+    terminal_height = terminal_size.lines
     while True:
-        print("\n"*5)
+        print("\n"*((terminal_height - rows) // 3))
         print_tree(rows)
         time.sleep(0.5)
         # Clear the terminal screen after each iteration
